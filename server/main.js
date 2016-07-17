@@ -28,6 +28,24 @@ JsonRoutes.add('get', 'user/accounts-auth-user', function(req, res) {
     });
 });
 
+JsonRoutes.add('GET', 'image-url', function(req, res) {
+    JsonRoutes.sendResult(res, {
+        data: Collections.Media.findOne().url()
+    });
+});
+
+JsonRoutes.add('GET', 'product', function(req, res) {
+    var product = Collections.Products.findOne({ _id: 'rEqv2ghBsqXhiDG3p'});
+    const media = Collections.Media.findOne({
+          "metadata.productId": product._id,
+    }, { sort: { uploadedAt: 1 } });
+    product.url = media.url();
+
+    JsonRoutes.sendResult(res, {
+        data: product
+    });
+});
+
 /**
  * Accounts.onCreateUser event
  * adding either a guest or anonymous role to the user on create
