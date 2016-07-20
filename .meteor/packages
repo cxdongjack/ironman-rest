@@ -18,3 +18,4 @@ cfs:gridfs
 # for test
 dispatch:mocha-browser
 practicalmeteor:chai
+dburles:factory

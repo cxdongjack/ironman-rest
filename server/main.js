@@ -22,6 +22,29 @@ JsonRoutes.add('GET', 'case-insensitive-method-1', function(req, res) {
     });
 });
 
+JsonRoutes.add('post', 'test-all-args/:id', function(req, res) {
+    JsonRoutes.sendResult(res, {
+        data: {
+          headers_id : req.headers.id,
+          params_id : req.params.id,
+          query_id : req.query.id,
+          body_id : req.body.id,
+        }
+    });
+});
+
+JsonRoutes.add('get', 'api/products', function(req, res) {
+    var offset = +req.params.offset || 0;
+    var limit = +req.query.limit || 5;
+    JsonRoutes.sendResult(res, {
+        data: {
+            items : Collections.Products.find({}, {skip : offset, limit: limit}).fetch(),
+            total : Collections.Products.find().count()
+        }
+    });
+});
+
+
 JsonRoutes.add('get', 'user/accounts-auth-user', function(req, res) {
     JsonRoutes.sendResult(res, {
         data: req.userId

@@ -30,6 +30,7 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.3
 coffeescript@1.1.3
+dburles:factory@1.0.0
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.6

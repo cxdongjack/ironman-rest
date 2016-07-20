@@ -20,3 +20,8 @@ export const Shops = new Mongo.Collection("Shops");
 * Products Collection
 */
 export const Products = new Mongo.Collection("Products");
+
+/**
+* Tags Collection
+*/
+export const Tags = new Mongo.Collection("Tags");
